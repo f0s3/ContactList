@@ -22,10 +22,8 @@ public class ContactList {
 
     public void editContact(Contact oldContact, Contact newContact) {
         Field[] fields = Contact.class.getDeclaredFields();
-        for (int  i = 0;i < fields.length;i++) {
-            int pos = getContacts().indexOf(oldContact); // get old contacts position
-            removeContact(oldContact); // remove old contact in position `pos`
-            getContacts().add(pos, newContact); // add new contact on position of old contact
-        }
+        int pos = getContacts().indexOf(oldContact); // get old contacts position
+        getContacts().add(pos, newContact); // add new contact on position of old contact
+        removeContact(oldContact);
     }
 }
